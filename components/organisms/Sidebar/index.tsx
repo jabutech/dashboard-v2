@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 import Image from "next/image";
-import Brand from "../Brand";
+import Brand from "./Brand";
 import MenuItem from "./MenuItem";
 // Import SidebarData for MenuItem
 import { SidebarData } from "./SidebarData";
