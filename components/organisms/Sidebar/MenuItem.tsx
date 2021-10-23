@@ -1,5 +1,4 @@
 import Link from "next/link";
-import classActive from "classnames";
 import { useState } from "react";
 
 // Declarate props
