@@ -5,32 +5,28 @@ import { useState } from "react";
 // Declarate props
 interface MenuItemProps {
   item: Object;
-  active?: Boolean;
+  pathActive: String;
 }
 export default function MenuItem(props: Partial<MenuItemProps>) {
-  const { item, active } = props;
+  const { item, pathActive } = props;
 
   // State for display sub navigation
   const [subMenu, setSubMenu] = useState(false);
 
   // Function fro show sub navigation
   const showSubMenu = () => setSubMenu(!subMenu);
-  const classItemSingle = classActive({
-    "flex justify-between items-center py-1 px-4 list-none h-10 no-underline text-sm font-normal text-gray-100 hover:bg-red-500 hover:border-red-500 cursor-pointer":
-      true,
-    "bg-red-700": active,
-  });
-  const classItemDropDown = classActive({
-    "h-10 pl-12 flex items-center no-underline text-gray-100 text-sm font-normal hover:bg-blue-500 bg-gray-500 cursor-pointer":
-      true,
-    "bg-blue-700": active,
-  });
+
   return (
     <>
       <div>
         {/* Cek jika tidak memiliki sub menu masukkan pathnya */}
         <Link href={`${!item.subMenu ? item.path : "#"}`}>
-          <a onClick={item.subMenu && showSubMenu} className={classItemSingle}>
+          <a
+            onClick={item.subMenu && showSubMenu}
+            className={`${
+              pathActive === item.path && "bg-red-700"
+            } flex justify-between items-center py-1 px-4 list-none h-10 no-underline text-sm font-normal text-gray-100 hover:bg-red-500 hover:border-red-500 cursor-pointer`}
+          >
             <div className="inline-flex items-center">
               {item.icon}
               <span className="ml-4">{item.title}</span>
@@ -57,7 +53,11 @@ export default function MenuItem(props: Partial<MenuItemProps>) {
         item.subMenu.map((item, index) => {
           return (
             <Link href={item.path} key={index}>
-              <a className={classItemDropDown}>
+              <a
+                className={`${
+                  pathActive === item.path && "bg-blue-700"
+                } h-10 pl-12 flex items-center no-underline text-gray-100 text-sm font-normal hover:bg-blue-500 bg-gray-500 cursor-pointer`}
+              >
                 {item.icon}
                 <span className="ml-4">{item.title}</span>
               </a>

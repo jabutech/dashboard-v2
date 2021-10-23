@@ -86,13 +86,7 @@ export default function Sidebar() {
           </div>
           <div className="w-full overflow-y-auto">
             {SidebarData.map((item, index) => {
-              return (
-                <MenuItem
-                  item={item}
-                  active={item.path === asPath}
-                  //   activeDropDown={item.Dropdown.subMenu.menuActive === asPath}
-                />
-              );
+              return <MenuItem item={item} pathActive={asPath} />;
             })}
           </div>
         </div>
