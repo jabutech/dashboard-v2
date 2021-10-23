@@ -1,10 +1,11 @@
-export default function index() {
+export default function DropdownTwo() {
   return (
     <div className="flex h-screen lg:ml-64 px-2 py-2 text-lg">
       <div className="w-full">
         {" "}
-        <div className="bg-blue-300 px-2 py-2 rounded text-gray-800">
-          Hello Rizky Darmawan, Welcome to my dashboard!
+        <div className="px-2 py-2">
+          {" "}
+          <span>DropDown 2</span>{" "}
         </div>
       </div>
     </div>
