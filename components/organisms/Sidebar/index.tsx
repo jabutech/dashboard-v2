@@ -23,7 +23,7 @@ export default function Sidebar() {
   return (
     <div>
       {/* Navbar */}
-      <div className="bg-gray-800 h-16 flex justify-between items-center shadow-lg px-9">
+      <div className="bg-gray-800 h-16 flex fixed top-0 justify-between items-center shadow-lg px-9 w-full z-10">
         {/* Div left */}
         <div>
           {/* Icon Bar Menu */}
