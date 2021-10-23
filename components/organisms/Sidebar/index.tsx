@@ -89,7 +89,7 @@ export default function Sidebar() {
               return (
                 <MenuItem
                   item={item}
-                  active={item.menuActive === asPath}
+                  active={item.path === asPath}
                   //   activeDropDown={item.Dropdown.subMenu.menuActive === asPath}
                 />
               );

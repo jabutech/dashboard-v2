@@ -7,13 +7,11 @@ export const SidebarData = [
     title: "Home",
     path: "/",
     icon: <FaIcons.FaHome />,
-    menuActive: "/",
   },
   {
     title: "Product",
     path: "/product",
     icon: <FaIcons.FaHome />,
-    menuActive: "/product",
   },
   // Drop down menu
   {
