@@ -1,7 +1,7 @@
 import * as FaIcons from "react-icons/fa";
 
 // Data menu sidebar
-export const SidebarData = [
+const SidebarData = [
   // Single Menu
   {
     title: "Home",
@@ -9,9 +9,9 @@ export const SidebarData = [
     icon: <FaIcons.FaHome />,
   },
   {
-    title: "Product",
-    path: "/product",
-    icon: <FaIcons.FaHome />,
+    title: "Icon",
+    path: "/icon",
+    icon: <FaIcons.FaHamburger />,
   },
   // Drop down menu
   {
@@ -36,3 +36,5 @@ export const SidebarData = [
     ],
   },
 ];
+
+export default SidebarData;

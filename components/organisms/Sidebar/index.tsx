@@ -5,7 +5,7 @@ import Image from "next/image";
 import Brand from "./Brand";
 import MenuItem from "./MenuItem";
 // Import SidebarData for MenuItem
-import { SidebarData } from "./SidebarData";
+import SidebarData from "./SidebarData";
 import DropdownProfile from "./DropdownProfile";
 import { useRouter } from "next/dist/client/router";
 
@@ -85,9 +85,7 @@ export default function Sidebar() {
             <Brand title="Jabutech" />
           </div>
           <div className="w-full overflow-y-auto">
-            {SidebarData.map((item, index) => {
-              return <MenuItem item={item} pathActive={asPath} />;
-            })}
+            <MenuItem items={SidebarData} pathActive={asPath} />
           </div>
         </div>
       </nav>
