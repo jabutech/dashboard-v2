@@ -9,7 +9,7 @@ export default function Product() {
       <section className="w-full">
         <div className="px-2 py-2">
           <span className="font-semibold text-lg font-mono text-gray-800">
-            Access Icon With package{" "}
+            Access Icon With package
             <b className="text-blue-600">React Icons</b>
           </span>
           <br />

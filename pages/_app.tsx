@@ -1,7 +1,7 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import Sidebar from "../components/organisms/Sidebar";
 import { useRouter } from "next/dist/client/router";
+import Sidebar from "../components/organisms/Sidebar";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // Get Path Active

@@ -1,13 +1,13 @@
 // import * as FaIcons from "react-icons/fa";
 import { useState } from "react";
 import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
+import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
 import Brand from "./Brand";
 import MenuItem from "./MenuItem";
 // Import SidebarData for MenuItem
 import SidebarData from "./SidebarData";
 import DropdownProfile from "./DropdownProfile";
-import { useRouter } from "next/dist/client/router";
 
 export default function Sidebar() {
   // Get Path Active
@@ -27,7 +27,10 @@ export default function Sidebar() {
         {/* Div left */}
         <div>
           {/* Icon Bar Menu */}
-          <button className="cursor-pointer text-gray-100 hover:text-gray-400 transition-colors duration-150">
+          <button
+            type="button"
+            className="cursor-pointer text-gray-100 hover:text-gray-400 transition-colors duration-150"
+          >
             <FaBars
               onClick={showSidebar}
               className="text-xl h-20 flex justify-start items-center"
@@ -36,6 +39,7 @@ export default function Sidebar() {
         </div>
         {/* Div right profile */}
         <button
+          type="button"
           onClick={() => setIsDropdown(!isDropdown)}
           className="text-gray-100 inline-flex items-center cursor-pointer hover:text-gray-400"
         >
@@ -70,7 +74,10 @@ export default function Sidebar() {
             {/* Sidebar Wrap */}
             {/* Icon Close Sidebar */}
             <div>
-              <button className="cursor-pointer text-gray-100 hover:text-gray-400 transition-colors duration-150">
+              <button
+                type="button"
+                className="cursor-pointer text-gray-100 hover:text-gray-400 transition-colors duration-150"
+              >
                 <FaTimes
                   onClick={showSidebar}
                   className="ml-8 text-3xl flex justify-start items-center"
