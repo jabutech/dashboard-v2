@@ -7,6 +7,7 @@ import Loading from "../components/atoms/loading";
 export default function Login() {
   // Use router
   const router = useRouter();
+  const getYear = new Date().getFullYear();
 
   // State for form
   const [username, setUsername] = useState("");
@@ -21,20 +22,22 @@ export default function Login() {
 
   //   Action
   const onSubmit = async () => {
-    // (1) Get all payload
-    const data = {
-      username,
-      password,
-    };
+    try {
+      setIsSubmitted(true);
+      // (1) Get all payload
 
-    // (2) If username or password is empty
-    if (!username || !password) {
-      // If yes, Response error
-      setErrors("Username dan Password wajib diisi!");
-    } else {
-      // If no, next process
-      // logic login to backend
-      router.push("/");
+      // (2) If username or password is empty
+      if (!username || !password) {
+        // If yes, Response error
+        setErrors("Username dan Password wajib diisi!");
+      } else {
+        // If no, next process
+        // logic login to backend
+        router.push("/");
+      }
+      setIsSubmitted(false);
+    } catch (err) {
+      setIsSubmitted(false);
     }
   };
 
@@ -43,16 +46,11 @@ export default function Login() {
       <div className="p-10 xs:p-0 mx-auto md:w-full md:max-w-md">
         {/* Start Logo */}
         <div className="font-bold flex flex-col justify-center text-2xl mb-5">
-          <Image
-            src="/image/logo.png"
-            alt="logo"
-            width={`100%`}
-            height={`130%`}
-          />
+          <Image src="/image/logo.png" alt="logo" width="100%" height="130%" />
 
           {/* Title App */}
           <div className="text-center mt-5 text-2xl text-gray-800 font-mono italic">
-            <p>Jabutech</p>
+            <p>JNE Express</p>
           </div>
         </div>
         {/* End logo */}
@@ -86,7 +84,7 @@ export default function Login() {
                 onChange={(e) => setUsername(e.target.value)}
                 value={username}
                 type="text"
-                className={`border-2 shadow-md focus:bg-white focus:border-gray-600 focus:outline-none rounded-lg px-3 py-2 mt-1 text-sm w-full focus:placeholder-gray-500`}
+                className="border-2 shadow-md focus:bg-white focus:border-gray-600 focus:outline-none rounded-lg px-3 py-2 mt-1 text-sm w-full focus:placeholder-gray-500"
                 placeholder="Username"
               />
             </div>
@@ -101,12 +99,15 @@ export default function Login() {
                   onChange={(e) => setPassword(e.target.value)}
                   value={password}
                   type={isVisible ? "text" : "password"}
-                  className={`border-2 shadow-md focus:bg-white focus:border-gray-600 focus:outline-none rounded-lg px-3 py-2 mt-1 text-sm w-full`}
+                  className="border-2 shadow-md focus:bg-white focus:border-gray-600 focus:outline-none rounded-lg px-3 py-2 mt-1 text-sm w-full"
                   placeholder="*****"
                 />
 
                 <div className="absolute inset-y-0 right-0 pr-3 flex items-center text-sm leading-5">
-                  <button onClick={() => setIsVisible(!isVisible)}>
+                  <button
+                    type="button"
+                    onClick={() => setIsVisible(!isVisible)}
+                  >
                     <div className="w-5 h-5 relative font-semibold">
                       {!isVisible ? <FaEye /> : <FaEyeSlash />}
                     </div>
@@ -127,7 +128,6 @@ export default function Login() {
                 className="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-flex items-center justify-center"
               >
                 <span className="inline-block mr-2">Login</span>
-                <div className="w-5 h-5 relative font-semibold"></div>
               </button>
             )}
           </div>
@@ -136,7 +136,8 @@ export default function Login() {
 
         {/* Start Footer */}
         <div className="text-center py-2 text-gray-800 font-semibold">
-          <h1> IT Development JNE Medan @ {new Date().getFullYear()}</h1>
+          <span>IT Development JNE Medan @</span>
+          <span>{getYear}</span>
         </div>
       </div>
     </div>
