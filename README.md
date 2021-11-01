@@ -18,8 +18,14 @@ npx degit letenk/dashboard-v2 test-template
 yarn install
 ```
 
-1. Change name container and port on **docker-compose.yml**
-2. Run docker
+Or
+
+```jsx
+npm install
+```
+
+2. Change name container and port on **docker-compose.yml**
+3. Run docker
 
 ```jsx
 docker-compose up -d --build
