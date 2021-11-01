@@ -1,13 +1,13 @@
 // import * as FaIcons from "react-icons/fa";
-import { useState } from "react";
-import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 import { useRouter } from "next/dist/client/router";
 import Image from "next/image";
+import { useState } from "react";
+import { FaAngleDown, FaBars, FaTimes } from "react-icons/fa";
 import Brand from "./Brand";
+import DropdownProfile from "./DropdownProfile";
 import MenuItem from "./MenuItem";
 // Import SidebarData for MenuItem
-import SidebarData from "./SidebarData";
-import DropdownProfile from "./DropdownProfile";
+import {SidebarData} from "./SidebarData";
 
 export default function Sidebar() {
   // Get Path Active
@@ -92,7 +92,9 @@ export default function Sidebar() {
             <Brand title="Jabutech" />
           </div>
           <div className="w-full overflow-y-auto">
-            <MenuItem items={SidebarData} pathActive={asPath} />
+            {SidebarData.map((items, index) => {
+              return <MenuItem items={items} key={index} pathActive={asPath} />
+            })}
           </div>
         </div>
       </nav>
